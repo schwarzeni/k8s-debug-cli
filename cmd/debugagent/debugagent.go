@@ -149,3 +149,54 @@ func tcpServer() {
 	// TODO: 一直未退出 。。不知道为什么
 	log.Println("shutting down tcp server")
 }
+
+
+// containerd's version
+//func main() {
+//	targetContainerName, ok := os.LookupEnv("ENV_CONTAINER_NAME")
+//	if !ok {
+//		log.Fatal("unable to find target container name in env")
+//	}
+//	containerdNS, ok := os.LookupEnv("ENV_CONTAINERD_NS")
+//	if !ok {
+//		log.Fatal("unable to find containerd's NS in env")
+//	}
+//	ctx := namespaces.WithNamespace(context.TODO(), containerdNS)
+//
+//	client, err := containerd.New("/run/containerd/containerd.sock")
+//	//client, err := containerd.New("/run_containerd/containerd.sock")
+//	if err != nil {
+//		log.Fatal("connect with containerd ", err)
+//	}
+//	defer client.Close()
+//
+//	_ = client
+//	log.Println("connect success")
+//
+//	findContainers, err := client.Containers(ctx)
+//	//findContainers, err := client.Containers(ctx, "name=="+targetContainerName)
+//	if err != nil {
+//		log.Fatal("find container ", err)
+//	}
+//	if len(findContainers) == 0 {
+//		log.Fatal("unable to find container with name ", findContainers)
+//	}
+//	log.Println("======= debug")
+//	for i := range findContainers {
+//		task, _ := findContainers[i].Task(ctx, nil)
+//		fmt.Printf("%+v\n", task)
+//		fmt.Printf("%+v\n", findContainers[i])
+//		fmt.Println()
+//	}
+//	_ = targetContainerName
+//	return
+//
+//	targetContainer := findContainers[0]
+//	task, err := targetContainer.Task(ctx, nil)
+//	if err != nil {
+//		log.Fatal("get current container task ", err)
+//	}
+//	targetContainerPID := task.Pid()
+//	log.Println("fetch container pid ", targetContainerPID)
+//
+//}

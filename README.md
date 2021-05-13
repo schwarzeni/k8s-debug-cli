@@ -20,7 +20,7 @@
 
 完整代码在 [https://github.com/schwarzeni/k8s-debug-cli](https://github.com/schwarzeni/k8s-debug-cli) 上。
 
-执行 `k8sdebugctl <pod namespace> <pod name>` 之后，会进入到 busybox 容器的终端交互界面，类似于 `kubectl exec -it` 或 `docker exec -it` 的效果，而这个 busybox 容器和目标 pod 是位于同一网络、PID 等命名空间中的。
+执行 `debugcli -n <pod namespace> -p <pod name>` 之后，会进入到 busybox 容器的终端交互界面，类似于 `kubectl exec -it` 或 `docker exec -it` 的效果，而这个 busybox 容器和目标 pod 是位于同一网络、PID 等命名空间中的。
 
 ![](dist/showcase.gif)
 
